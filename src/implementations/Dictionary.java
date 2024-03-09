@@ -24,7 +24,7 @@ public class Dictionary<K,V> implements DictionaryADT<K,V>
 	public ArrayList<V> getValues() {
 		return values;
 	}
-	
+	@Override
 	public void insert(K key, V value)throws DuplicateKeyException{
 		if (keys.contains(key)) {
 			throw new DuplicateKeyException("Key already exists in the dictionary");
@@ -32,17 +32,17 @@ public class Dictionary<K,V> implements DictionaryADT<K,V>
 		keys.add(key);
 		values.add(value);
 	}
-	
+	@Override
 	public void remove(K key) {
 		int index = keys.indexOf(key);
 		keys.remove(index);
 		values.remove(index);
 	}
-	
+	@Override
 	public void update(K key, V value) {
 		values.set(keys.indexOf(key), value);
 	}
-	
+	@Override
 	public V lookup(K key) {
 		return values.get(keys.indexOf(key));
 	}
